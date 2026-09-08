@@ -1,0 +1,2 @@
+name = "belentani-core"
+pages_build_output_dir = "dist/public"
