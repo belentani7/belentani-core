@@ -1,11 +1,38 @@
-node_modules
-.next
-out
-build
-vercel
-*.tsbuildinfo
-next-env.d.ts
+# Dependencies
+node_modules/
+bower_components/
+
+# Production
+build/
+dist/
+
+docs/
+
+# Misc
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Logs
 npm-debug.log*
-.vercel
-.env*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Tests
+.cypress/
+
+# Cache
+.cache/
