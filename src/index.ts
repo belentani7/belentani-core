@@ -3,4 +3,4 @@ export * from "./ledger.js";
 export * from "./repository-audit.js";
 export * from "./trace.js";
 export * from "./validation.js";
-export * from "./design-tokens.js";
+export * from "./canon-tokens.js";

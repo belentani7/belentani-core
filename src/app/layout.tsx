@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "./verde-vivo.css";
+import "./canon.css";
 
 export const metadata: Metadata = {
-  title: "BELENTANI // VERDE VIVO",
+  title: "BELENTANI // NEURAL ARCHITECT",
   description:
-    "Neural Architect · Voice AI · Zero-Token Routing. Trust & Safety, sistemas de IA y automatizacion en un ecosistema vivo.",
+    "Neural Architect · Voice AI · Zero-Token Routing. Trust & Safety, sistemas de IA y automatizacion con evidencia auditable.",
   openGraph: {
-    title: "BELENTANI // VERDE VIVO",
-    description:
-      "Neural Architect · Voice AI · Zero-Token Routing",
+    title: "BELENTANI // NEURAL ARCHITECT",
+    description: "Neural Architect · Voice AI · Zero-Token Routing",
     type: "website",
   },
 };
@@ -20,9 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // data-theme permite cambiar el sistema visual entero con un atributo:
-    // "verde" = tema VERDE VIVO (por defecto), "neon" = tema original intacto.
-    <html lang="es" data-theme="verde">
+    // data-theme="canon" reorganiza el sistema visual sobre la paleta canonica
+    // (rojo neon, oro viejo, negro, violeta). Sin el atributo el sitio usa el
+    // tema actual: la adopcion es gradual y revertir es quitar un atributo.
+    <html lang="es" data-theme="canon">
       <body className="scanlines">{children}</body>
     </html>
   );
