@@ -1,0 +1,188 @@
+/*
+ * CANON · capa de tema del universo Belentani
+ *
+ * Paleta canonica: rojo neon, oro viejo, negro y violeta, con cristal facetado.
+ * Espejo CSS de src/canon-tokens.ts, que es la fuente de verdad y la que
+ * validan los tests de contraste.
+ *
+ * Se aplica con data-theme en <html>:
+ *   data-theme="canon"  -> sistema canon (misma identidad, mejor organizada)
+ *   sin data-theme      -> tema actual intacto (adopcion gradual)
+ */
+
+[data-theme="canon"] {
+  color-scheme: dark;
+
+  --bg: #050505;
+  --surface: #0E0A16;
+  --surface-alt: #150D24;
+  --border: #9B5CFF33;
+  --text: #F5F0FF;
+  --text-muted: #B9A8D9;
+
+  --neon-100: #FFE1E7;
+  --neon-200: #FFB3C2;
+  --neon-300: #FF8FA8;
+  --neon-400: #FF4D70;
+  --neon-500: #FF073A;
+  --neon-600: #D4052F;
+
+  --violet-100: #F0E7FF;
+  --violet-200: #D6C0FF;
+  --violet-300: #B79BFF;
+  --violet-400: #9B5CFF;
+  --violet-500: #7A2BFF;
+  --violet-600: #5F17CC;
+
+  --gold-100: #FBF0CF;
+  --gold-200: #F3DDA0;
+  --gold-300: #E4C670;
+  --gold-400: #D4AF37;
+  --gold-500: #B8902A;
+  --gold-600: #8C6B1C;
+
+  --on-accent: #050505;
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+
+  --shadow-soft: 0 8px 30px -12px rgb(155 92 255 / 0.28);
+  --shadow-glow: 0 0 0 1px rgb(255 7 58 / 0.22), 0 18px 50px -20px rgb(255 7 58 / 0.45);
+  --shadow-glow-strong: 0 0 0 1px rgb(255 7 58 / 0.40), 0 30px 80px -24px rgb(155 92 255 / 0.60);
+
+  --dur-fast: 180ms;
+  --dur-base: 420ms;
+  --dur-slow: 900ms;
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --font-display: "Sora", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Negro con violeta de fondo: profundidad sin perder el negro canon */
+  background:
+    radial-gradient(1200px 600px at 12% -10%, rgb(122 43 255 / 0.16), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, rgb(255 7 58 / 0.10), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+[data-theme="canon"] body {
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+[data-theme="canon"] h1,
+[data-theme="canon"] h2,
+[data-theme="canon"] h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Cristal facetado: violeta profundo a negro */
+[data-theme="canon"] .glass,
+[data-theme="canon"] .glass-panel {
+  background: linear-gradient(150deg, rgb(21 13 36 / 0.86), rgb(14 10 22 / 0.72)), var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+
+[data-theme="canon"] a {
+  color: var(--gold-400);
+  text-underline-offset: 3px;
+}
+
+[data-theme="canon"] a:hover {
+  color: var(--gold-300);
+}
+
+[data-theme="canon"] a:focus-visible,
+[data-theme="canon"] button:focus-visible,
+[data-theme="canon"] [tabindex]:focus-visible {
+  outline: 2px solid var(--violet-300);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+[data-theme="canon"] .btn-primary {
+  background: linear-gradient(135deg, var(--neon-500), var(--violet-500));
+  color: var(--on-accent);
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-glow);
+  transition: transform var(--dur-fast) var(--ease-emphasized),
+              box-shadow var(--dur-base) var(--ease-emphasized);
+}
+
+[data-theme="canon"] .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-strong);
+}
+
+[data-theme="canon"] .btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Estado: texto claro sobre violeta translucido, no color saturado sobre negro */
+[data-theme="canon"] .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgb(155 92 255 / 0.16);
+  border: 1px solid rgb(155 92 255 / 0.45);
+  color: var(--violet-200);
+  font-size: 0.8125rem;
+}
+
+[data-theme="canon"] .badge--gold {
+  background: rgb(212 175 55 / 0.14);
+  border-color: rgb(212 175 55 / 0.45);
+  color: var(--gold-200);
+}
+
+[data-theme="canon"] .grid-bg {
+  background-image:
+    linear-gradient(rgb(155 92 255 / 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(155 92 255 / 0.10) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 20%, transparent 78%);
+  opacity: 0.55;
+}
+
+/* Cristal facetado: brillo en la arista superior izquierda, rebote violeta al final */
+[data-theme="canon"] .facet {
+  position: relative;
+}
+
+[data-theme="canon"] .facet::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgb(255 255 255 / 0.10) 0%,
+    transparent 32%,
+    transparent 68%,
+    rgb(155 92 255 / 0.12) 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="canon"] *,
+  [data-theme="canon"] *::before,
+  [data-theme="canon"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
