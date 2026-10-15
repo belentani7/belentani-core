@@ -1,63 +1,45 @@
-name: Bug Report
-description: Reportar un fallo reproducible
-labels: ["bug", "triage"]
-title: "[Bug]: "
+name: bug_report
+
+on: issue_template
+
+labels:
+  - bug
+
+title: "Bug Report: {{title}}"
+description: "Please provide a detailed bug report for us to investigate."
+
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Gracias por reportar un bug. Por favor, sé específico.
-  - type: input
-    id: repo
-    attributes:
-      label: Repositorio afectado
-      placeholder: ej. belentani-core
-    validations:
+  - intro_message:
+      text: "Thanks for filing an issue! Please fill in the template below as completely as possible. If you're reporting a security vulnerability, please email belentani7pedro@gmail.com instead."
+    required: true
+  - separator
+  - text_input:
+      id: title
+      valid_regex: ""
       required: true
-  - type: input
-    id: version
-    attributes:
-      label: Versión/Commit
-      placeholder: ej. main@abc123 o v1.2.3
-    validations:
+      placeholder: "Short description of the bug"
+  - text_input:
+      id: version
+      valid_regex: ""
       required: true
-  - type: textarea
-    id: steps
-    attributes:
-      label: Pasos para reproducir
-      placeholder: |
-        1. Ve a...
-        2. Haz clic en...
-        3. Observa el error
-      value: ""
-    validations:
+      placeholder: "Version of the package"
+  - textarea:
+      id: steps_to_reproduce
+      valid_regex: ""
       required: true
-  - type: textarea
-    id: expected
-    attributes:
-      label: Comportamiento esperado
-      placeholder: Qué debería pasar
-    validations:
+      placeholder: "Steps to reproduce the bug"
+  - textarea:
+      id: expected_behavior
+      valid_regex: ""
       required: true
-  - type: textarea
-    id: actual
-    attributes:
-      label: Comportamiento actual
-      placeholder: Qué pasa realmente
-    validations:
+      placeholder: "Expected behavior"
+  - textarea:
+      id: actual_behavior
+      valid_regex: ""
       required: true
-  - type: textarea
-    id: logs
-    attributes:
-      label: Logs / Capturas / Stack trace
-      placeholder: Pega logs relevantes aquí
-      render: shell
-  - type: checkboxes
-    id: checklist
-    attributes:
-      label: Checklist
-      options:
-        - label: He buscado issues duplicados
-          required: true
-        - label: He probado en la última versión (main)
-          required: true
+      placeholder: "Actual behavior"
+  - text_input:
+      id: environment
+      valid_regex: ""
+      required: true
+      placeholder: "OS, browser version, etc."
