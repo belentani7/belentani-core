@@ -1,0 +1,63 @@
+name: Bug Report
+description: Reportar un fallo reproducible
+labels: ["bug", "triage"]
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por reportar un bug. Por favor, sé específico.
+  - type: input
+    id: repo
+    attributes:
+      label: Repositorio afectado
+      placeholder: ej. belentani-core
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versión/Commit
+      placeholder: ej. main@abc123 o v1.2.3
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducir
+      placeholder: |
+        1. Ve a...
+        2. Haz clic en...
+        3. Observa el error
+      value: ""
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamiento esperado
+      placeholder: Qué debería pasar
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamiento actual
+      placeholder: Qué pasa realmente
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Capturas / Stack trace
+      placeholder: Pega logs relevantes aquí
+      render: shell
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: He buscado issues duplicados
+          required: true
+        - label: He probado en la última versión (main)
+          required: true
